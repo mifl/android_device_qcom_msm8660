@@ -29,13 +29,6 @@ file := $(INSTALLED_BOOTLOADER_TARGET)
 ALL_PREBUILT += $(file)
 $(file): $(TARGET_BOOTLOADER) | $(ACP)
 	$(transform-prebuilt-to-target)
-
-# Copy nandwrite utility to target out directory
-INSTALLED_NANDWRITE_TARGET := $(PRODUCT_OUT)/nandwrite
-file := $(INSTALLED_NANDWRITE_TARGET)
-ALL_PREBUILT += $(file)
-$(file) : $(TARGET_NANDWRITE) | $(ACP)
-	$(transform-prebuilt-to-target)
 endif
 
 #----------------------------------------------------------------------
@@ -52,9 +45,9 @@ ALL_PREBUILT += $(file)
 $(file) : $(TARGET_PREBUILT_KERNEL) | $(ACP)
 	$(transform-prebuilt-to-target)
 
-file := $(TARGET_OUT_KEYLAYOUT)/surf_keypad.kl
+file := $(TARGET_OUT_KEYLAYOUT)/ffa-keypad.kl
 ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/surf_keypad.kl | $(ACP)
+$(file) : $(LOCAL_PATH)/ffa-keypad.kl | $(ACP)
 	$(transform-prebuilt-to-target)
 
 file := $(TARGET_OUT_KEYLAYOUT)/handset.kl
@@ -63,9 +56,9 @@ $(file) : $(LOCAL_PATH)/handset.kl | $(ACP)
 	$(transform-prebuilt-to-target)
 
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := surf_keypad_qwerty.kcm
+LOCAL_SRC_FILES := ffa-keypad_qwerty.kcm
 include $(BUILD_KEY_CHAR_MAP)
 
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := surf_keypad_numeric.kcm
+LOCAL_SRC_FILES := ffa-keypad_numeric.kcm
 include $(BUILD_KEY_CHAR_MAP)
