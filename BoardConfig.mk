@@ -72,4 +72,4 @@ TARGET_USES_LAUNCHER_V1 := true
 TARGET_NO_USE_ROTATOR := true
 
 BOARD_KERNEL_CMDLINE := console=ttyDCC0 androidboot.hardware=qcom
-BOARD_EGL_CFG := vendor/qcom/$(TARGET_PRODUCT)/egl.cfg
+BOARD_EGL_CFG := device/qcom/$(TARGET_PRODUCT)/egl.cfg
