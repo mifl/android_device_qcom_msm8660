@@ -62,3 +62,9 @@ include $(BUILD_KEY_CHAR_MAP)
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := ffa-keypad_numeric.kcm
 include $(BUILD_KEY_CHAR_MAP)
+
+file := $(TARGET_OUT)/etc/vold.fstab
+ALL_PREBUILT += $(file)
+$(file) : $(LOCAL_PATH)/vold.fstab | $(ACP)
+	$(transform-prebuilt-to-target)
+
