@@ -17,6 +17,11 @@ DEVICE_PROVISIONED=1
 debug.sf.hw=1
 
 #
+# system props for the data modules
+#
+ro.use_data_netmgrd=false
+
+#
 # system props for the cne module
 #
 persist.cne.UseCne=false
