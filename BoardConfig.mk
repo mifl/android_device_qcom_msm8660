@@ -35,7 +35,6 @@ ifeq ($(QC_PROP),true)
     # BOARD_WPA_SUPPLICANT_DRIVER := WEXT
     endif   # !BUILD_TINY_ANDROID
     BOARD_USES_GENERIC_AUDIO := true
-    USE_CAMERA_STUB := true
 
 else
     BOARD_USES_GENERIC_AUDIO := true
