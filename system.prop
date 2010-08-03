@@ -45,3 +45,8 @@ persist.cne.be.do.sqi.max=100
 persist.cne.be.wlan.sqi.min=0
 persist.cne.be.wlan.sqi.max=100
 ro.hdmi.enable=true
+
+#system props for the MM modules
+
+media.stagefright.enable-player=true
+media.stagefright.enable-http=true
