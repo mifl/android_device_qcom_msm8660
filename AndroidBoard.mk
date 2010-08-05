@@ -68,3 +68,8 @@ ALL_PREBUILT += $(file)
 $(file) : $(LOCAL_PATH)/vold.fstab | $(ACP)
 	$(transform-prebuilt-to-target)
 
+file := $(TARGET_OUT)/etc/init.qcom.load-modem.sh
+ALL_PREBUILT += $(file)
+$(file) : $(LOCAL_PATH)/init.qcom.load-modem.sh | $(ACP)
+	$(transform-prebuilt-to-target)
+
