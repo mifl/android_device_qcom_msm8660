@@ -18,11 +18,6 @@ debug.sf.hw=1
 dalvik.vm.heapsize=24m
 
 #
-# system props for the data modules
-#
-ro.use_data_netmgrd=false
-
-#
 # system props for the cne module
 #
 persist.cne.UseCne=false
@@ -51,3 +46,9 @@ ro.hdmi.enable=true
 
 media.stagefright.enable-player=true
 media.stagefright.enable-http=true
+
+#
+# system props for the data modules
+#
+ro.use_data_netmgrd=true
+persist.data_netmgrd_nint=3
