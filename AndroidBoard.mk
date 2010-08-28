@@ -73,3 +73,9 @@ ALL_PREBUILT += $(file)
 $(file) : $(LOCAL_PATH)/init.qcom.load-modem.sh | $(ACP)
 	$(transform-prebuilt-to-target)
 
+ifeq ($(strip $(BOARD_HAS_QCOM_WLAN)),true)
+file := $(TARGET_OUT)/etc/wifi/wpa_supplicant.conf
+ALL_PREBUILT += $(file)
+$(file) : $(LOCAL_PATH)/wpa_supplicant.conf | $(ACP)
+	$(transform-prebuilt-to-target)
+endif
