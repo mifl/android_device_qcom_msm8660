@@ -24,7 +24,7 @@ ifeq ($(QC_PROP),true)
     HAVE_ADRENO200_SOURCE := true
     HAVE_ADRENO200_SC_SOURCE := true
     HAVE_ADRENO200_FIRMWARE := true
-    BOARD_USES_QCOM_AUDIO_V2 := false
+    BOARD_USES_QCOM_AUDIO_V2 := true
     BOARD_USE_QCOM_TESTONLY := true
 
     ifneq ($(BUILD_TINY_ANDROID), true)
@@ -35,7 +35,6 @@ ifeq ($(QC_PROP),true)
     BOARD_WPA_SUPPLICANT_DRIVER := WEXT
     WPA_SUPPLICANT_VERSION := VER_0_6_X
     endif   # !BUILD_TINY_ANDROID
-    BOARD_USES_GENERIC_AUDIO := true
 
 else
     BOARD_USES_GENERIC_AUDIO := true
