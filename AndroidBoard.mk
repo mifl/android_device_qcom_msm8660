@@ -50,6 +50,11 @@ ALL_PREBUILT += $(file)
 $(file) : $(LOCAL_PATH)/ffa-keypad.kl | $(ACP)
 	$(transform-prebuilt-to-target)
 
+file := $(TARGET_OUT_KEYLAYOUT)/fluid-keypad.kl
+ALL_PREBUILT += $(file)
+$(file) : $(LOCAL_PATH)/fluid-keypad.kl | $(ACP)
+	$(transform-prebuilt-to-target)
+
 file := $(TARGET_OUT_KEYLAYOUT)/handset.kl
 ALL_PREBUILT += $(file)
 $(file) : $(LOCAL_PATH)/handset.kl | $(ACP)
@@ -62,6 +67,15 @@ include $(BUILD_KEY_CHAR_MAP)
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := ffa-keypad_numeric.kcm
 include $(BUILD_KEY_CHAR_MAP)
+
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := fluid-keypad_qwerty.kcm
+include $(BUILD_KEY_CHAR_MAP)
+
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := fluid-keypad_numeric.kcm
+include $(BUILD_KEY_CHAR_MAP)
+
 
 file := $(TARGET_OUT)/etc/vold.fstab
 ALL_PREBUILT += $(file)
