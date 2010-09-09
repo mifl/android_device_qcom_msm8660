@@ -68,9 +68,9 @@ ALL_PREBUILT += $(file)
 $(file) : $(LOCAL_PATH)/vold.fstab | $(ACP)
 	$(transform-prebuilt-to-target)
 
-file := $(TARGET_OUT)/etc/init.qcom.load-modem.sh
+file := $(TARGET_ROOT_OUT)/init.target.rc
 ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/init.qcom.load-modem.sh | $(ACP)
+$(file) : $(LOCAL_PATH)/init.target.rc | $(ACP)
 	$(transform-prebuilt-to-target)
 
 ifeq ($(strip $(BOARD_HAS_QCOM_WLAN)),true)
