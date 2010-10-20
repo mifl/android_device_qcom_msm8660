@@ -32,6 +32,7 @@ on emmc
     mkdir /system/etc/firmware/misc 0771 system system
     devwait /dev/block/mmcblk0p1
     mount vfat /dev/block/mmcblk0p1 /system/etc/firmware/misc ro shortname=lower
+    symlink /system/etc/firmware/misc/image/q6.b05 /system/etc/firmware/q6.b05
     symlink /system/etc/firmware/misc/image/q6.b04 /system/etc/firmware/q6.b04
     symlink /system/etc/firmware/misc/image/q6.b03 /system/etc/firmware/q6.b03
     symlink /system/etc/firmware/misc/image/q6.b02 /system/etc/firmware/q6.b02
