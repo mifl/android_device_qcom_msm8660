@@ -55,3 +55,6 @@ persist.data_netmgrd_nint=3
 
 #system props for time-services
 persist.timed.enable=true
+
+# System props for audio
+persist.audio.fluence.mode=endfire
