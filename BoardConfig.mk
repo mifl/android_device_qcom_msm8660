@@ -27,6 +27,7 @@ ifeq ($(QC_PROP),true)
     BOARD_USES_QCOM_AUDIO_V2 := true
     BOARD_USE_QCOM_TESTONLY := true
     TARGET_USES_SF_BYPASS := false
+    TARGET_USES_C2D_COMPOSITION := true
 
     ifneq ($(BUILD_TINY_ANDROID), true)
     BOARD_GPS_LIBRARIES := libloc
