@@ -36,8 +36,8 @@ ifeq ($(QC_PROP),true)
     BOARD_HAS_QCOM_WLAN := true
     BOARD_WPA_SUPPLICANT_DRIVER := WEXT
     WPA_SUPPLICANT_VERSION := VER_0_6_X
-    WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/volans_rf.ko"
-    WIFI_DRIVER_MODULE_NAME := "volans_rf"
+    WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/libra.ko"
+    WIFI_DRIVER_MODULE_NAME := "libra"
     endif   # !BUILD_TINY_ANDROID
 
 else
