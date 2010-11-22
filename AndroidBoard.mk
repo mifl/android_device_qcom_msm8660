@@ -55,9 +55,9 @@ ALL_PREBUILT += $(file)
 $(file) : $(LOCAL_PATH)/fluid-keypad.kl | $(ACP)
 	$(transform-prebuilt-to-target)
 
-file := $(TARGET_OUT_KEYLAYOUT)/handset.kl
+file := $(TARGET_OUT_KEYLAYOUT)/8660_handset.kl
 ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/handset.kl | $(ACP)
+$(file) : $(LOCAL_PATH)/8660_handset.kl | $(ACP)
 	$(transform-prebuilt-to-target)
 
 include $(CLEAR_VARS)
