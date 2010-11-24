@@ -1,3 +1,4 @@
+#!/system/bin/sh
 # Copyright (c) 2010, Code Aurora Forum. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -27,11 +28,36 @@
 #
 #
 
-on emmc
-    mount ext4 /dev/block/mmcblk0p12 /system remount rw barrier=0
-    mkdir /system/etc/firmware/misc 0771 system system
-    devwait /dev/block/mmcblk0p1
-    mount vfat /dev/block/mmcblk0p1 /system/etc/firmware/misc ro shortname=lower
-    exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
-    mount ext4 /dev/block/mmcblk0p12 /system remount ro barrier=0
+# No path is set up at this point so we have to do it here.
+PATH=/sbin:/system/sbin:/system/bin:/system/xbin
+export PATH
+
+# Check for images and set up symlinks
+cd /system/etc/firmware/misc/image
+
+case `ls modem.mdt 2>/dev/null` in
+    modem.mdt)
+        for imgfile in modem*; do
+            ln -s /system/etc/firmware/misc/image/$imgfile /system/etc/firmware/$imgfile 2>/dev/null
+        done
+        break
+        ;;
+    *)
+        log -p w -t PIL 8660 device but no modem image found
+        ;;
+esac
+
+case `ls q6.mdt 2>/dev/null` in
+    q6.mdt)
+        for imgfile in q6*; do
+            ln -s /system/etc/firmware/misc/image/$imgfile /system/etc/firmware/$imgfile 2>/dev/null
+        done
+        break
+        ;;
+    *)
+        log -p w -t PIL 8660 device but no q6 image found
+        ;;
+esac
+
+cd /
 
