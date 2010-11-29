@@ -41,7 +41,7 @@ persist.cne.be.do.sqi.max=100
 persist.cne.be.wlan.sqi.min=0
 persist.cne.be.wlan.sqi.max=100
 ro.hdmi.enable=true
-lpa.decode=true
+lpa.decode=false
 
 #system props for the MM modules
 
