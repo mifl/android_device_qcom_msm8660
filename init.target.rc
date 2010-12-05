@@ -51,3 +51,19 @@ on emmc
     symlink /system/etc/firmware/misc/image/modem.mdt /system/etc/firmware/modem.mdt
     mount ext3 /dev/block/mmcblk0p12 /system remount ro
 
+service dcvs0 /system/bin/dcvs --cpu=0 --slacktime=64
+    user root
+    disabled
+
+service dcvs1 /system/bin/dcvs --cpu=1 --slacktime=64
+    user root
+    disabled
+
+service mpdecision /system/bin/mpdecision --Nw=2.1 --Tw=100 --Ns=1.1 --Ts=70
+    user root
+    disabled
+
+on property:init.svc.bootanim=stopped
+    start dcvs0
+    start dcvs1
+    start mpdecision
