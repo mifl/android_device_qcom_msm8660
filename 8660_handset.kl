@@ -26,5 +26,5 @@
 #
 key 226   HEADSETHOOK       WAKE
 key 164   HEADSETHOOK       WAKE #V2 Hardware support
-Key 168   MEDIA_REWIND      WAKE #V2 Hardware support
-Key 208   MEDIA_FAST_FORWARD  WAKE #v2 Hardware support
+key 168   MEDIA_REWIND      WAKE #V2 Hardware support
+key 208   MEDIA_FAST_FORWARD  WAKE #v2 Hardware support
