@@ -35,3 +35,22 @@ on emmc-fs
     exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
     mount ext4 /dev/block/mmcblk0p12 /system remount ro barrier=0
 
+service dcvsd0 /system/bin/dcvsd -c 0 -f /data/misc/dcvsd/dcvsd0.conf
+    user root
+    disabled
+
+service dcvsd1 /system/bin/dcvsd -c 1 -f /data/misc/dcvsd/dcvsd1.conf
+    user root
+    disabled
+
+service dcvs0 /system/bin/dcvs --cpu=0 --slacktime=64
+    user root
+    disabled
+
+service dcvs1 /system/bin/dcvs --cpu=1 --slacktime=64
+    user root
+    disabled
+
+service mpdecision /system/bin/mpdecision --Nw=2.1 --Tw=100 --Ns=1.1 --Ts=70
+    user root
+    disabled
