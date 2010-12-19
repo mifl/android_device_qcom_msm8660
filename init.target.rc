@@ -27,7 +27,7 @@
 #
 #
 
-on emmc
+on emmc-fs
     mount ext4 /dev/block/mmcblk0p12 /system remount rw barrier=0
     mkdir /system/etc/firmware/misc 0771 system system
     devwait /dev/block/mmcblk0p1
