@@ -30,7 +30,7 @@ ifeq ($(QC_PROP),true)
     TARGET_USES_C2D_COMPOSITION := true
 
     ifneq ($(BUILD_TINY_ANDROID), true)
-    #BOARD_GPS_LIBRARIES := libloc
+    BOARD_GPS_LIBRARIES := libloc
     BOARD_CAMERA_LIBRARIES := libcamera
     BOARD_HAVE_BLUETOOTH := true
     BOARD_HAS_QCOM_WLAN := true
