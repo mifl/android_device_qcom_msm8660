@@ -27,3 +27,4 @@ include frameworks/base/data/sounds/OriginalAudio.mk
 PRODUCT_BRAND := qcom
 PRODUCT_NAME := msm8660_surf
 PRODUCT_DEVICE := msm8660_surf
+PRODUCT_LOCALES := hdpi
