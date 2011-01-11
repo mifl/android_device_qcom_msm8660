@@ -51,6 +51,6 @@ service dcvs1 /system/bin/dcvs --cpu=1 --slacktime=64
     user root
     disabled
 
-service mpdecision /system/bin/mpdecision --Nw=2.1 --Tw=100 --Ns=1.1 --Ts=70
+service mpdecision /system/bin/mpdecision --Nw=0.6 --Tw=80 --Ns=0.1 --Ts=250
     user root
     disabled
