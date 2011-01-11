@@ -33,31 +33,81 @@ PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 export PATH
 
 # Check for images and set up symlinks
-cd /system/etc/firmware/misc/image
+cd /firmware/image
 
-case `ls modem.mdt 2>/dev/null` in
-    modem.mdt)
-        for imgfile in modem*; do
-            ln -s /system/etc/firmware/misc/image/$imgfile /system/etc/firmware/$imgfile 2>/dev/null
-        done
-        break
-        ;;
-    *)
-        log -p w -t PIL 8660 device but no modem image found
-        ;;
-esac
+# Get the list of files in /firmware/image
+# for which sym links have to be created
 
-case `ls q6.mdt 2>/dev/null` in
-    q6.mdt)
-        for imgfile in q6*; do
-            ln -s /system/etc/firmware/misc/image/$imgfile /system/etc/firmware/$imgfile 2>/dev/null
-        done
-        break
-        ;;
-    *)
-        log -p w -t PIL 8660 device but no q6 image found
-        ;;
+fwfiles=`ls modem* q6*`
+
+# Check if the links with similar names
+# have been created in /system/etc/firmware
+
+cd /system/etc/firmware
+linksNeeded=0
+
+# For everyfile in fwfiles check if
+# the corresponding file exists
+for fwfile in $fwfiles; do
+
+   # if (condition) does not seem to work
+   # with the android shell. Therefore
+   # make do with case statements instead.
+   # if a file named $fwfile is present
+   # no need to create links. If the file
+   # with the name $fwfile is not present
+   # need to create links.
+
+   case `ls $fwfile` in
+      $fwfile)
+         continue;;
+      *)
+         # file with $fwfile does not exist
+         # need to create links
+         linksNeeded=1
+         break;;
+   esac
+
+done
+
+# if links are needed mount the FS as read write
+case $linksNeeded in
+   1)
+      cd /firmware/image
+      mount -t ext4 -o remount,rw,barrier=0 /dev/block/mmcblk0p12 /system
+
+
+      case `ls modem.mdt 2>/dev/null` in
+         modem.mdt)
+            for imgfile in modem*; do
+               ln -s /firmware/image/$imgfile /system/etc/firmware/$imgfile 2>/dev/null
+            done
+            break;;
+        *)
+            # trying to log here but nothing will be logged since it is 
+            # early in the boot process. Is there a way to log this message?
+            log -p w -t PIL 8660 device but no modem image found;;
+      esac
+
+      case `ls q6.mdt 2>/dev/null` in
+         q6.mdt)
+            for imgfile in q6*; do
+               ln -s /firmware/image/$imgfile /system/etc/firmware/$imgfile 2>/dev/null
+            done
+            break;;
+         *)
+            log -p w -t PIL 8660 device but no q6 image found;;
+         esac
+
+      #remount file system as read only
+      mount -t ext4 -o remount,ro,barrier=0 /dev/block/mmcblk0p12 /system
+      break;;
+
+   *)
+      # Nothing to do. No links needed
+      break;;
 esac
 
 cd /
+
 
