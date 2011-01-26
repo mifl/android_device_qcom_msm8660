@@ -55,6 +55,11 @@ service mpdecision /system/bin/mpdecision
     user root
     disabled
 
+service thermald /system/bin/thermald
+    user root
+    disabled
+
 on property:init.svc.bootanim=stopped
     start mpdecision
+    start thermald
 
