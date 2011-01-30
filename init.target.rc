@@ -60,6 +60,5 @@ service thermald /system/bin/thermald
     disabled
 
 on property:init.svc.bootanim=stopped
-    start mpdecision
     start thermald
 
