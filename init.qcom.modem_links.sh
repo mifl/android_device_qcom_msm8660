@@ -97,7 +97,7 @@ case $linksNeeded in
             break;;
          *)
             log -p w -t PIL 8660 device but no q6 image found;;
-         esac
+      esac
 
       #remount file system as read only
       mount -t ext4 -o remount,ro,barrier=0 /dev/block/mmcblk0p12 /system

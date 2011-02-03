@@ -1,4 +1,5 @@
-# Copyright (c) 2010, Code Aurora Forum. All rights reserved.
+#!/system/bin/sh
+# Copyright (c) 2011, Code Aurora Forum. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -27,50 +28,29 @@
 #
 #
 
-# on emmc mount the partition containing firmware
-on emmc-fs
-   mkdir /firmware 0771 system system
-   wait /dev/block/mmcblk0p1
-   mount vfat /dev/block/mmcblk0p1 /firmware ro shortname=lower
-   exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
+# No path is set up at this point so we have to do it here.
+PATH=/sbin:/system/sbin:/system/bin:/system/xbin
+export PATH
 
-on post-fs
-    wait /dev/ttyHSL1
-    mkdir /data/qcks 0770 system system
+mount -t ext4 -o remount,rw,barrier=0 /dev/block/mmcblk0p12 /system
 
-service kickstart /system/bin/qcks l
-    oneshot
-    disabled
+mkdir /system/etc/firmware/misc_mdm
+chmod 771  /system/etc/firmware/misc_mdm
+chown system.system /system/etc/firmware/misc_mdm
+mount -t vfat -o ro,shortname=lower /dev/block/mmcblk0p17 /system/etc/firmware/misc_mdm
 
-# Start kickstart if csfb or svlte2a target
-on property:ro.baseband=csfb
-    exec /system/bin/sh /system/etc/init.qcom.mdm_links.sh
-    start kickstart
+MISC_MDM=/system/etc/firmware/misc_mdm/image
+cd $MISC_MDM
+ln -s $MISC_MDM/amss.mbn /system/etc/firmware/amss.mbn 2>/dev/null
+ln -s $MISC_MDM/dsp1.mbn /system/etc/firmware/dsp1.mbn 2>/dev/null
+ln -s $MISC_MDM/dsp2.mbn /system/etc/firmware/dsp2.mbn 2>/dev/null
+ln -s $MISC_MDM/dbl.mbn  /system/etc/firmware/dbl.mbn  2>/dev/null
+ln -s $MISC_MDM/osbl.mbn /system/etc/firmware/osbl.mbn 2>/dev/null
+ln -s $MISC_MDM/efs1.mbn /system/etc/firmware/efs1.mbn 2>/dev/null
+ln -s $MISC_MDM/efs2.mbn /system/etc/firmware/efs2.mbn 2>/dev/null
 
-on property:ro.baseband=svlte2a
-    exec /system/bin/sh /system/etc/init.qcom.mdm_links.sh
-    start kickstart
+mount -t ext4 -o remount,ro,barrier=0 /dev/block/mmcblk0p12 /system
+
+cd /
 
 
-service dcvsd0 /system/bin/dcvsd -c 0 -f /data/misc/dcvsd/dcvsd0.conf
-    user root
-    disabled
-
-service dcvsd1 /system/bin/dcvsd -c 1 -f /data/misc/dcvsd/dcvsd1.conf
-    user root
-    disabled
-
-service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
-    user root
-    disabled
-
-service thermald /system/bin/thermald
-    user root
-    disabled
-
-service qrngd /system/bin/qrngd -f
-    user root
-
-on property:init.svc.bootanim=stopped
-    start mpdecision
-    start thermald
