@@ -59,6 +59,5 @@ service thermald /system/bin/thermald
     user root
     disabled
 
-on property:init.svc.bootanim=stopped
-    start thermald
-
+service qrngd /system/bin/qrngd -f
+    user root
