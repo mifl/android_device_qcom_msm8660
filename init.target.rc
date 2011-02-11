@@ -50,7 +50,7 @@ service dcvs1 /system/bin/dcvs --cpu=1 --slacktime=64
     user root
     disabled
 
-service mpdecision /system/bin/mpdecision
+service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
     user root
     disabled
 
