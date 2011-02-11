@@ -59,9 +59,6 @@ service thermald /system/bin/thermald
     user root
     disabled
 
-service qrngd /system/bin/qrngd -f
-    user root
-
 on property:init.svc.bootanim=stopped
     start thermald
     start mpdecision
