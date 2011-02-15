@@ -63,3 +63,4 @@ service qrngd /system/bin/qrngd -f
 
 on property:init.svc.bootanim=stopped
     start mpdecision
+    start thermald
