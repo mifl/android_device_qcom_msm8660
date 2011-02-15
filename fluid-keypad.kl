@@ -46,4 +46,6 @@ key 128   HOME              WAKE
 key 155   ENVELOPE
 
 key 466   DPAD_CENTER       WAKE_DROPPED
-key 528   BACK
+
+key 528   FOCUS
+key 766   CAMERA
