@@ -42,6 +42,7 @@ ifeq ($(QC_PROP),true)
     WIFI_DRIVER_MODULE_NAME := "libra"
     endif   # !BUILD_TINY_ANDROID
 
+    HAVE_QC_TIME_SERVICES := true
 else
     BOARD_USES_GENERIC_AUDIO := true
     USE_CAMERA_STUB := true
