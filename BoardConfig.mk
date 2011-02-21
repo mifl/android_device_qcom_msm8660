@@ -40,9 +40,8 @@ ifeq ($(QC_PROP),true)
     WPA_SUPPLICANT_VERSION := VER_0_6_X
     WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/libra.ko"
     WIFI_DRIVER_MODULE_NAME := "libra"
-    endif   # !BUILD_TINY_ANDROID
-
     HAVE_QC_TIME_SERVICES := true
+    endif   # !BUILD_TINY_ANDROID
 else
     BOARD_USES_GENERIC_AUDIO := true
     USE_CAMERA_STUB := true
