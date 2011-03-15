@@ -46,18 +46,22 @@ $(file) : $(LOCAL_PATH)/8660_handset.kl | $(ACP)
 
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := ffa-keypad_qwerty.kcm
+LOCAL_MODULE_TAGS := optional
 include $(BUILD_KEY_CHAR_MAP)
 
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := ffa-keypad_numeric.kcm
+LOCAL_MODULE_TAGS := optional
 include $(BUILD_KEY_CHAR_MAP)
 
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := fluid-keypad_qwerty.kcm
+LOCAL_MODULE_TAGS := optional
 include $(BUILD_KEY_CHAR_MAP)
 
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := fluid-keypad_numeric.kcm
+LOCAL_MODULE_TAGS := optional
 include $(BUILD_KEY_CHAR_MAP)
 
 
