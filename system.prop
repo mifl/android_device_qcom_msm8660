@@ -89,3 +89,7 @@ ro.bluetooth.remote.autoconnect=true
 # system prop for Bluetooth FTP profile
 #
 ro.qualcomm.bluetooth.ftp=true
+#
+# system prop for requesting Master role in incoming Bluetooth connection.
+#
+ro.bluetooth.request.master=true
