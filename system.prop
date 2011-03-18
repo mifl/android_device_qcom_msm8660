@@ -84,3 +84,7 @@ ro.qualcomm.bluetooth.dun=true
 # system prop for Bluetooth Auto connect for remote initated connections
 #
 ro.bluetooth.remote.autoconnect=true
+#
+# system prop for sending power off request to RIL during phone shutdown
+#
+ro.ril.shutdown=true
