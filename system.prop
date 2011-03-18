@@ -93,3 +93,7 @@ ro.qualcomm.bluetooth.ftp=true
 # system prop for requesting Master role in incoming Bluetooth connection.
 #
 ro.bluetooth.request.master=true
+#
+# system prop for sending power off request to RIL during phone shutdown
+#
+ro.ril.shutdown=true
