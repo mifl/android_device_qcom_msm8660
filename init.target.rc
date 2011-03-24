@@ -29,6 +29,11 @@
 
 # on emmc mount the partition containing firmware
 on emmc-fs
+   mkdir /tombstones 0771 system system
+   mount ext4 /dev/block/mmcblk0p16 /tombstones nosuid nodev barrier=1
+   mkdir /tombstones/modem 0771 system system
+   mkdir /tombstones/mdm 0771 system system
+   mkdir /tombstones/lpass 0771 system system
    mkdir /firmware 0771 system system
    wait /dev/block/mmcblk0p1
    mount vfat /dev/block/mmcblk0p1 /firmware ro shortname=lower
