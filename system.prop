@@ -97,3 +97,6 @@ ro.bluetooth.request.master=true
 # system prop for sending power off request to RIL during phone shutdown
 #
 ro.ril.shutdown=true
+# system property for Bluetooth discoverability time out in seconds
+# 0: Always discoverable
+debug.bt.discoverable_time=0
