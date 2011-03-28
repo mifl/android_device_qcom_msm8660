@@ -48,6 +48,7 @@ ln -s $MISC_MDM/dbl.mbn  /system/etc/firmware/dbl.mbn  2>/dev/null
 ln -s $MISC_MDM/osbl.mbn /system/etc/firmware/osbl.mbn 2>/dev/null
 ln -s $MISC_MDM/efs1.mbn /system/etc/firmware/efs1.mbn 2>/dev/null
 ln -s $MISC_MDM/efs2.mbn /system/etc/firmware/efs2.mbn 2>/dev/null
+ln -s $MISC_MDM/efs3.mbn /system/etc/firmware/efs3.mbn 2>/dev/null
 
 mount -t ext4 -o remount,ro,barrier=0 /dev/block/mmcblk0p12 /system
 
