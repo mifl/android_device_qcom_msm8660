@@ -79,3 +79,7 @@ service qrngd /system/bin/qrngd -f
 on property:init.svc.bootanim=stopped
     start mpdecision
     start thermald
+
+on property:ro.baseband=svlte2a
+   setprop ro.config.ehrpd true
+   setprop ro.config.svlte1x true
