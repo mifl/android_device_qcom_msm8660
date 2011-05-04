@@ -76,6 +76,12 @@ case $linksNeeded in
       cd /firmware/image
       mount -t ext4 -o remount,rw,barrier=0 /dev/block/mmcblk0p12 /system
 
+      #Adjust permissions for select files
+      chmod 4755 /system/bin/diag_mdlog
+      chmod 4755 /system/bin/btwlancoex
+      chmod 4755 /system/bin/ip
+      chmod 4755 /system/bin/usbhub
+      chmod  755 /system/bin/usbhub_init
 
       case `ls modem.mdt 2>/dev/null` in
          modem.mdt)
@@ -108,7 +114,6 @@ case $linksNeeded in
          *)
             log -p w -t PIL 8660 device but no playready image found;;
       esac
-
 
       #remount file system as read only
       mount -t ext4 -o remount,ro,barrier=0 /dev/block/mmcblk0p12 /system
