@@ -40,6 +40,7 @@ on emmc-fs
    exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
 
 service kickstart /system/bin/qcks l
+    user system
     oneshot
     disabled
 
