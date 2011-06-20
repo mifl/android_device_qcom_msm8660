@@ -43,6 +43,9 @@ lpa.use-stagefright=true
 
 media.stagefright.enable-player=true
 media.stagefright.enable-http=true
+media.stagefright.enable-fma2dp=false
+media.stagefright.enable-aac=true
+media.stagefright.enable-qcp=true
 
 #
 # system props for the data modules
