@@ -39,6 +39,11 @@ ALL_PREBUILT += $(file)
 $(file) : $(LOCAL_PATH)/fluid-keypad.kl | $(ACP)
 	$(transform-prebuilt-to-target)
 
+file := $(TARGET_OUT_KEYLAYOUT)/matrix-keypad.kl
+ALL_PREBUILT += $(file)
+$(file) : $(LOCAL_PATH)/matrix-keypad.kl | $(ACP)
+	$(transform-prebuilt-to-target)
+
 file := $(TARGET_OUT_KEYLAYOUT)/8660_handset.kl
 ALL_PREBUILT += $(file)
 $(file) : $(LOCAL_PATH)/8660_handset.kl | $(ACP)
