@@ -68,7 +68,7 @@ TARGET_USES_UNCOMPRESSED_KERNEL := false
 TARGET_USES_LAUNCHER_V1 := true
 TARGET_NO_USE_ROTATOR := true
 
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom loglevel=1
 BOARD_EGL_CFG := device/qcom/$(TARGET_PRODUCT)/egl.cfg
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00A00000
