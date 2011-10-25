@@ -29,20 +29,32 @@ ALL_PREBUILT += $(file)
 $(file) : $(TARGET_PREBUILT_KERNEL) | $(ACP)
 	$(transform-prebuilt-to-target)
 
-file := $(TARGET_OUT_KEYLAYOUT)/ffa-keypad.kl
-ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/ffa-keypad.kl | $(ACP)
-	$(transform-prebuilt-to-target)
+#----------------------------------------------------------------------
+# Key mappings
+#----------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ffa-keypad.kl
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := $(LOCAL_MODULE)
+LOCAL_MODULE_PATH  := $(TARGET_OUT_KEYLAYOUT)
+include $(BUILD_PREBUILT)
 
-file := $(TARGET_OUT_KEYLAYOUT)/fluid-keypad.kl
-ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/fluid-keypad.kl | $(ACP)
-	$(transform-prebuilt-to-target)
+include $(CLEAR_VARS)
+LOCAL_MODULE       := fluid-keypad.kl
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := $(LOCAL_MODULE)
+LOCAL_MODULE_PATH  := $(TARGET_OUT_KEYLAYOUT)
+include $(BUILD_PREBUILT)
 
-file := $(TARGET_OUT_KEYLAYOUT)/8660_handset.kl
-ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/8660_handset.kl | $(ACP)
-	$(transform-prebuilt-to-target)
+include $(CLEAR_VARS)
+LOCAL_MODULE       := 8660_handset.kl
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := $(LOCAL_MODULE)
+LOCAL_MODULE_PATH  := $(TARGET_OUT_KEYLAYOUT)
+include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := ffa-keypad_qwerty.kcm
@@ -64,30 +76,41 @@ LOCAL_SRC_FILES := fluid-keypad_numeric.kcm
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_KEY_CHAR_MAP)
 
+include $(CLEAR_VARS)
+LOCAL_MODULE       := vold.fstab
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
 
-file := $(TARGET_OUT)/etc/vold.fstab
-ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/vold.fstab | $(ACP)
-	$(transform-prebuilt-to-target)
+include $(CLEAR_VARS)
+LOCAL_MODULE       := init.target.rc
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := $(LOCAL_MODULE)
+LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
+include $(BUILD_PREBUILT)
 
-file := $(TARGET_ROOT_OUT)/init.target.rc
-ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/init.target.rc | $(ACP)
-	$(transform-prebuilt-to-target)
+include $(CLEAR_VARS)
+LOCAL_MODULE       := init.qcom.modem_links.sh
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
 
-file := $(TARGET_OUT)/etc/init.qcom.modem_links.sh
-ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/init.qcom.modem_links.sh | $(ACP)
-	$(transform-prebuilt-to-target)
-
-file := $(TARGET_OUT)/etc/init.qcom.mdm_links.sh
-ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/init.qcom.mdm_links.sh | $(ACP)
-	$(transform-prebuilt-to-target)
+include $(CLEAR_VARS)
+LOCAL_MODULE       := init.qcom.mdm_links.sh
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
 
 ifeq ($(strip $(BOARD_HAS_QCOM_WLAN)),true)
-file := $(TARGET_OUT)/etc/wifi/wpa_supplicant.conf
-ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/wpa_supplicant.conf | $(ACP)
-	$(transform-prebuilt-to-target)
+include $(CLEAR_VARS)
+LOCAL_MODULE       := wpa_supplicant.conf
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := $(LOCAL_MODULE)
+LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/wifi
+include $(BUILD_PREBUILT)
 endif
