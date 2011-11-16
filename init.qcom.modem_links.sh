@@ -79,7 +79,7 @@ case $linksNeeded in
       #Adjust permissions for select files
       chmod 4755 /system/bin/diag_mdlog
       chmod 4755 /system/bin/btwlancoex
-      chmod 4755 /system/bin/ip
+      chmod 0755 /system/bin/ip
       chmod 4755 /system/bin/usbhub
       chmod  755 /system/bin/usbhub_init
 
