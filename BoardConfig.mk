@@ -18,6 +18,7 @@ ifeq ($(QC_PROP),true)
     TARGET_HAS_S3D_SUPPORT := true
     WEBCORE_INPAGE_VIDEO := true
     USE_OPENGL_RENDERER := true
+    TARGET_HAVE_BYPASS := true
 
     ifneq ($(BUILD_TINY_ANDROID), true)
     BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50001
