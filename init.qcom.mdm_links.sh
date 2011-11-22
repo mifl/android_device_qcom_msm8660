@@ -37,7 +37,7 @@ mount -t ext4 -o remount,rw,barrier=0 /dev/block/mmcblk0p12 /system
 mkdir /system/etc/firmware/misc_mdm
 chmod 771  /system/etc/firmware/misc_mdm
 chown system.system /system/etc/firmware/misc_mdm
-mount -t vfat -o ro,shortname=lower /dev/block/mmcblk0p18 /system/etc/firmware/misc_mdm
+mount -t vfat -o ro,shortname=lower /dev/block/mmcblk0p19 /system/etc/firmware/misc_mdm
 
 MISC_MDM=/system/etc/firmware/misc_mdm/image
 cd $MISC_MDM
