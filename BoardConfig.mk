@@ -102,3 +102,6 @@ HAVE_CYTTSP_FW_UPGRADE := true
 
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_UI_LIB := librecovery_ui_qcom
+
+# Add NON-HLOS files for ota upgrade
+ADD_RADIO_FILES ?= false
