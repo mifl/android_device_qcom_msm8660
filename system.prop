@@ -88,7 +88,7 @@ ro.qualcomm.bluetooth.ftp=true
 ro.bluetooth.request.master=true
 # system property for Bluetooth discoverability time out in seconds
 # 0: Always discoverable
-debug.bt.discoverable_time=0
+#debug.bt.discoverable_time=0
 
 # System property for cabl
 ro.qualcomm.cabl=1
