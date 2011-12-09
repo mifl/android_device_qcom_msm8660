@@ -79,4 +79,4 @@ service qrngd /system/bin/qrngd -f
 
 on property:ro.baseband=svlte2a
    setprop ro.config.ehrpd true
-   setprop ro.config.svlte1x true
+   setprop ro.ril.svlte1x true
