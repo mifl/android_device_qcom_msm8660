@@ -20,6 +20,7 @@ ifeq ($(QC_PROP),true)
     WEBCORE_INPAGE_VIDEO := true
     USE_OPENGL_RENDERER := true
     TARGET_HAVE_BYPASS := true
+    PROTEUS_DEVICE_API := true
 
     ifneq ($(BUILD_TINY_ANDROID), true)
     BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50001
