@@ -114,3 +114,6 @@ TARGET_RECOVERY_UI_LIB := librecovery_ui_qcom
 
 # Add NON-HLOS files for ota upgrade
 ADD_RADIO_FILES ?= false
+
+# Use QCOM LLVM for RenderScript
+BOARD_USE_QCOM_LLVM_CLANG_RS := true
