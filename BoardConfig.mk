@@ -21,6 +21,7 @@ ifeq ($(QC_PROP),true)
     USE_OPENGL_RENDERER := true
     TARGET_HAVE_BYPASS := true
     PROTEUS_DEVICE_API := true
+    BOARD_USE_QCOM_LLVM_CLANG_RS := true
 
     ifneq ($(BUILD_TINY_ANDROID), true)
     BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50001
@@ -116,5 +117,3 @@ TARGET_RECOVERY_UI_LIB := librecovery_ui_qcom
 # Add NON-HLOS files for ota upgrade
 ADD_RADIO_FILES ?= false
 
-# Use QCOM LLVM for RenderScript
-BOARD_USE_QCOM_LLVM_CLANG_RS := true
