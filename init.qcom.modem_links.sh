@@ -108,11 +108,13 @@ case $linksNeeded in
       case `ls playrdy.mdt 2>/dev/null` in
          playrdy.mdt)
             for imgfile in playrdy*; do
-               ln -s /firmware/image/$imgfile /system/etc/firmware/$imgfile 2>/dev/null
+               tzapplinkfile=${imgfile##*.}
+               tzapplinkfile=tzapps.$tzapplinkfile
+               ln -s /firmware/image/$imgfile /system/etc/firmware/$tzapplinkfile 2>/dev/null
             done
             break;;
          *)
-            log -p w -t PIL 8660 device but no playready image found;;
+            log -p w -t PIL 8660 device but no playrdy image found;;
       esac
 
       #remount file system as read only
