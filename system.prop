@@ -50,6 +50,7 @@ media.stagefright.enable-fma2dp=false
 media.stagefright.enable-aac=true
 media.stagefright.enable-qcp=true
 media.stagefright.enable-scan=true
+mmp.enable.3g2=true
 
 #
 # system props for the data modules
