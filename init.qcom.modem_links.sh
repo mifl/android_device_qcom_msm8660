@@ -70,11 +70,9 @@ for fwfile in $fwfiles; do
 
 done
 
-# if links are needed mount the FS as read write
 case $linksNeeded in
    1)
       cd /firmware/image
-      mount -t ext4 -o remount,rw,barrier=0 /dev/block/mmcblk0p12 /system
 
       #Adjust permissions for select files
       chmod 4755 /system/bin/diag_mdlog
@@ -117,8 +115,6 @@ case $linksNeeded in
             log -p w -t PIL 8660 device but no playrdy image found;;
       esac
 
-      #remount file system as read only
-      mount -t ext4 -o remount,ro,barrier=0 /dev/block/mmcblk0p12 /system
       break;;
 
    *)
