@@ -80,3 +80,8 @@ service qrngd /system/bin/qrngd -f
 on property:ro.baseband=svlte2a
    setprop ro.config.ehrpd true
    setprop ro.ril.svlte1x true
+
+on property:sys.radio.shutdown=true
+    write  /sys/devices/platform/rs300000a7.65536/force_sync 1
+    write  /sys/devices/platform/rs300100a7.65536/force_sync 1
+
