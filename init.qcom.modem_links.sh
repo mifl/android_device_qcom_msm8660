@@ -38,7 +38,7 @@ cd /firmware/image
 # Get the list of files in /firmware/image
 # for which sym links have to be created
 
-fwfiles=`ls modem* q6* playrdy*`
+fwfiles=`ls modem* q6* tzapps*`
 
 # Check if the links with similar names
 # have been created in /system/etc/firmware
@@ -103,14 +103,14 @@ case $linksNeeded in
             log -p w -t PIL 8660 device but no q6 image found;;
       esac
 
-      case `ls playrdy.mdt 2>/dev/null` in
-         playrdy.mdt)
-            for imgfile in playrdy*; do
+      case `ls tzapps.mdt 2>/dev/null` in
+         tzapps.mdt)
+            for imgfile in tzapps*; do
                ln -s /firmware/image/$imgfile /system/etc/firmware/$imgfile 2>/dev/null
             done
             break;;
          *)
-            log -p w -t PIL 8660 device but no playready image found;;
+            log -p w -t PIL 8660 device but no tzapps image found;;
       esac
 
       break;;
