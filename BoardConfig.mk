@@ -18,7 +18,6 @@ ifeq ($(QC_PROP),true)
     BOARD_USES_QCNE := true
     TARGET_AVOID_DRAW_TEXTURE_EXTENSION := true
     TARGET_HAS_S3D_SUPPORT := true
-    WEBCORE_INPAGE_VIDEO := true
     USE_OPENGL_RENDERER := true
     TARGET_HAVE_BYPASS := false
     PROTEUS_DEVICE_API := true
