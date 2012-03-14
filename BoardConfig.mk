@@ -19,7 +19,7 @@ ifeq ($(QC_PROP),true)
     TARGET_AVOID_DRAW_TEXTURE_EXTENSION := true
     TARGET_HAS_S3D_SUPPORT := true
     USE_OPENGL_RENDERER := true
-    TARGET_HAVE_BYPASS := false
+    TARGET_HAVE_BYPASS := true
     PROTEUS_DEVICE_API := true
     BOARD_USE_QCOM_LLVM_CLANG_RS := true
 
