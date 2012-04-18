@@ -44,6 +44,11 @@ on emmc-fs
 on post-fs
    mount ext4 /dev/block/mmcblk0p12 /system ro remount barrier=1
 
+service qcamerasvr /system/bin/mm-qcamera-daemon
+    class late_start
+    user system
+    group system camera inet
+
 service kickstart /system/bin/qcks l
     oneshot
     disabled
