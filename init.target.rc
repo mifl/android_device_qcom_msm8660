@@ -48,12 +48,6 @@ service kickstart /system/bin/qcks l
     oneshot
     disabled
 
-#start camera server as daemon
-service qcamerasvr /system/bin/mm-qcamera-daemon
-        class late_start
-        user system
-        group system camera inet
-
 # Start kickstart if csfb or svlte2a target
 on property:ro.baseband=csfb
     wait /dev/ttyHSL1
