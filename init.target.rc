@@ -29,6 +29,13 @@
 
 on early-init
     mkdir /firmware 0771 system system
+    export EXTERNAL_STORAGE /storage/sdcard0
+    mkdir /storage 0050 system sdcard_r
+    mkdir /storage/sdcard0 0000 system system
+    symlink /storage/sdcard0 /sdcard
+    symlink /storage/sdcard0 /mnt/sdcard
+    mkdir /vendor 0771 system system
+    symlink /firmware/image /vendor/firmware
 
 on fs
     mount_all fstab.msm8660
@@ -101,3 +108,15 @@ on property:sys.radio.shutdown=true
    exec /system/bin/sh /system/etc/init.qcom.efs.sync.sh
    user root
    group root
+
+on fs
+# mount mmc partitions
+    wait /dev/block/mmcblk0p12
+    mount ext4 /dev/block/mmcblk0p12 /system rw barrier=1
+    wait /dev/block/mmcblk0p13
+    exec /system/bin/e2fsck -p /dev/block/mmcblk0p13
+    mount ext4 /dev/block/mmcblk0p13 /data nosuid nodev barrier=1 noauto_da_alloc
+    mount ext4 /dev/block/mmcblk0p14 /persist nosuid nodev barrier=1
+    mount ext4 /dev/block/mmcblk0p15 /cache nosuid nodev barrier=1
+    wait /dev/block/mmcblk0p1
+    mount vfat /dev/block/mmcblk0p1 /firmware ro shortname=lower
