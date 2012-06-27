@@ -46,8 +46,8 @@ on post-fs
 
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
-    user system
-    group system camera inet
+    user camera
+    group camera system inet
 
 service kickstart /system/bin/qcks l
     oneshot
