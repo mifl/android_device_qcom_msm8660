@@ -29,11 +29,6 @@
 
 on early-init
     mkdir /firmware 0771 system system
-    export EXTERNAL_STORAGE /storage/sdcard0
-    mkdir /storage 0050 system sdcard_r
-    mkdir /storage/sdcard0 0000 system system
-    symlink /storage/sdcard0 /sdcard
-    symlink /storage/sdcard0 /mnt/sdcard
     mkdir /vendor 0771 system system
     symlink /firmware/image /vendor/firmware
 
@@ -44,11 +39,29 @@ on fs
     # these partition flashed on the device. Failure to mount any partition in fstab file
     # results in failure to launch late-start class.
 
-    wait /dev/block/platform/msm_sdcc.1/by-name/cache
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/cache /cache nosuid nodev barrier=1
+    wait /dev/block/platform/msm_sdcc.1/by-num/p15
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-num/p15 /cache nosuid nodev barrier=1
 
-    wait /dev/block/platform/msm_sdcc.1/by-name/modem
-    mount vfat /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro shortname=lower dmask=177 fmask=177
+    wait /dev/block/platform/msm_sdcc.1/by-num/p1
+    mount vfat /dev/block/platform/msm_sdcc.1/by-num/p1 /firmware ro shortname=lower dmask=177 fmask=177
+
+    wait /dev/block/platform/msm_sdcc.1/by-num/p14
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-num/p14 /persist nosuid nodev barrier=1
+
+    start qcmodemlink
+    start qcmdmlink
+
+service qcmodemlink /system/bin/sh /system/etc/init.qcom.modem_links.sh
+    class main
+    user root
+    disabled
+    oneshot
+
+service qcmdmlink /system/bin/sh /system/etc/init.qcom.mdm_links.sh
+    class main
+    user root
+    disabled
+    oneshot
 
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
@@ -108,15 +121,3 @@ on property:sys.radio.shutdown=true
    exec /system/bin/sh /system/etc/init.qcom.efs.sync.sh
    user root
    group root
-
-on fs
-# mount mmc partitions
-    wait /dev/block/mmcblk0p12
-    mount ext4 /dev/block/mmcblk0p12 /system rw barrier=1
-    wait /dev/block/mmcblk0p13
-    exec /system/bin/e2fsck -p /dev/block/mmcblk0p13
-    mount ext4 /dev/block/mmcblk0p13 /data nosuid nodev barrier=1 noauto_da_alloc
-    mount ext4 /dev/block/mmcblk0p14 /persist nosuid nodev barrier=1
-    mount ext4 /dev/block/mmcblk0p15 /cache nosuid nodev barrier=1
-    wait /dev/block/mmcblk0p1
-    mount vfat /dev/block/mmcblk0p1 /firmware ro shortname=lower
