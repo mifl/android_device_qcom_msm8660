@@ -102,7 +102,7 @@ ro.ril.transmitpower=true
 #
 # Simulate sdcard on /data/media
 #
-persist.fuse_sdcard=false
+persist.fuse_sdcard=true
 
 #
 # System prop for using landscape preview layout in camera
