@@ -28,6 +28,7 @@ ifeq ($(QC_PROP),true)
     MM_AUDIO_FTM_DISABLED := true
     MM_AUDIO_MEASUREMENT_DISABLED := true
     MM_AUDIO_VOEM_DISABLED := true
+    TARGET_NO_RPC := false
 
     ifneq ($(BUILD_TINY_ANDROID), true)
     #BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50001
@@ -75,7 +76,6 @@ TARGET_USES_OVERLAY := true
 TARGET_NO_BOOTLOADER := false
 TARGET_NO_KERNEL := false
 TARGET_NO_RADIOIMAGE := true
-TARGET_NO_RPC := true
 
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
