@@ -67,10 +67,12 @@ service qcmdmlink /system/bin/sh /system/etc/init.qcom.mdm_links.sh
     disabled
     oneshot
 
+on boot
+   start qcamerasvr
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
-    user system
-    group system camera inet
+    user camera
+    group camera system inet input
 
 service kickstart /system/bin/qcks l
     oneshot
