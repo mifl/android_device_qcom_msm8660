@@ -35,7 +35,7 @@ ifeq ($(QC_PROP),true)
     BOARD_CAMERA_LIBRARIES := libcamera
     #BOARD_HAVE_BLUETOOTH := true
     BOARD_HAVE_QCOM_FM := true
-    BOARD_HAS_QCOM_WLAN := false
+    BOARD_HAS_QCOM_WLAN := true
     BOARD_WPA_SUPPLICANT_DRIVER := NL80211
     BOARD_HOSTAPD_DRIVER := NL80211
     WPA_SUPPLICANT_VERSION := VER_0_8_X
@@ -43,6 +43,9 @@ ifeq ($(QC_PROP),true)
     WIFI_SDIO_IF_DRIVER_MODULE_PATH := "/system/lib/modules/librasdioif.ko"
     WIFI_SDIO_IF_DRIVER_MODULE_NAME := "librasdioif"
     WIFI_SDIO_IF_DRIVER_MODULE_ARG  := ""
+    WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
+    WIFI_DRIVER_MODULE_NAME := "wlan"
+    WIFI_DRIVER_MODULE_ARG := ""
     HAVE_QC_TIME_SERVICES := true
     WIFI_DRIVER_FW_PATH_STA := "sta"
     WIFI_DRIVER_FW_PATH_AP  := "ap"
