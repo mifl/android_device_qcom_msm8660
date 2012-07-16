@@ -48,8 +48,12 @@ on fs
     wait /dev/block/platform/msm_sdcc.1/by-num/p14
     mount ext4 /dev/block/platform/msm_sdcc.1/by-num/p14 /persist nosuid nodev barrier=1
 
+on boot
     start qcmodemlink
     start qcmdmlink
+
+on post-fs
+   mount ext4 /dev/block/platform/msm_sdcc.1/by-num/p12 /system ro remount barrier=1
 
 service qcmodemlink /system/bin/sh /system/etc/init.qcom.modem_links.sh
     class main
