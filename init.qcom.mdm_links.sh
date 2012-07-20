@@ -32,6 +32,8 @@
 PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 export PATH
 
+mount -t ext4 -o rw,remount,barrier=1 /dev/block/platform/msm_sdcc.1/by-num/p12 /system
+
 mkdir /system/etc/firmware/misc_mdm
 chmod 771  /system/etc/firmware/misc_mdm
 chown system.system /system/etc/firmware/misc_mdm
@@ -47,6 +49,13 @@ ln -s $MISC_MDM/osbl.mbn /system/etc/firmware/osbl.mbn 2>/dev/null
 ln -s $MISC_MDM/efs1.mbn /system/etc/firmware/efs1.mbn 2>/dev/null
 ln -s $MISC_MDM/efs2.mbn /system/etc/firmware/efs2.mbn 2>/dev/null
 ln -s $MISC_MDM/efs3.mbn /system/etc/firmware/efs3.mbn 2>/dev/null
+
+
+wait /dev/block/platform/msm_sdcc.1/by-num/p1
+mount -t vfat -o ro,shortname=lower /dev/block/platform/msm_sdcc.1/by-num/p1 /firmware
+sh /system/etc/init.qcom.modem_links.sh
+
+mount -t ext4 -o ro,remount,barrier=1 /dev/block/platform/msm_sdcc.1/by-num/p12 /system
 
 cd /
 
