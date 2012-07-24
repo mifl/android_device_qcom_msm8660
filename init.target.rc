@@ -29,8 +29,6 @@
 
 on early-init
     mkdir /firmware 0771 system system
-    mkdir /vendor 0771 system system
-    symlink /firmware/image /vendor/firmware
     symlink /data/tombstones /tombstones
 
 on fs
@@ -46,25 +44,11 @@ on fs
     wait /dev/block/platform/msm_sdcc.1/by-num/p14
     mount ext4 /dev/block/platform/msm_sdcc.1/by-num/p14 /persist nosuid nodev barrier=1
 
-on post-fs
-    start qcmdmlink
-
 on post-fs-data
+   mkdir /data/tombstones 0771 system system
    mkdir /tombstones/modem 0771 system system
    mkdir /tombstones/mdm 0771 system system
    mkdir /tombstones/lpass 0771 system system
-
-service qcmodemlink /system/bin/sh /system/etc/init.qcom.modem_links.sh
-    class main
-    user root
-    disabled
-    oneshot
-
-service qcmdmlink /system/bin/sh /system/etc/init.qcom.mdm_links.sh
-    class main
-    user root
-    disabled
-    oneshot
 
 on boot
    start qcamerasvr
