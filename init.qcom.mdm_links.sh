@@ -48,16 +48,4 @@ ln -s $MISC_MDM/efs1.mbn /system/etc/firmware/efs1.mbn 2>/dev/null
 ln -s $MISC_MDM/efs2.mbn /system/etc/firmware/efs2.mbn 2>/dev/null
 ln -s $MISC_MDM/efs3.mbn /system/etc/firmware/efs3.mbn 2>/dev/null
 
-case `getprop ro.baseband` in
-   svlte2a)
-    sleep 5
-    break;;
-   *)
-    break;;
-esac
-
-wait /dev/block/platform/msm_sdcc.1/by-num/p1
-mount -t vfat -o ro,shortname=lower /dev/block/platform/msm_sdcc.1/by-num/p1 /firmware
-sh /system/etc/init.qcom.modem_links.sh
-
 cd /
