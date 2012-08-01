@@ -18,10 +18,11 @@ DEVICE_PROVISIONED=1
 keyguard.no_require_sim=1
 debug.sf.hw=1
 debug.composition.type=dyn
-debug.compbypass.enable=1
 ro.sf.lcd_density=240
 dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
+debug.mdpcomp.maxlayer=3
+debug.mdpcomp.logs=0
 
 #
 # system props for the cne module
@@ -94,6 +95,10 @@ ro.bluetooth.request.master=true
 # System property for cabl
 ro.qualcomm.cabl=1
 
+# System props for telephony
+# System prop to turn on CdmaLTEPhone always
+telephony.lteOnCdmaDevice=1
+
 #
 # System prop for sending transmit power request to RIL during WiFi hotspot on/off
 #
@@ -102,7 +107,7 @@ ro.ril.transmitpower=true
 #
 # Simulate sdcard on /data/media
 #
-persist.fuse_sdcard=false
+persist.fuse_sdcard=true
 
 #
 # System prop for using landscape preview layout in camera
