@@ -23,7 +23,6 @@ dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
 debug.mdpcomp.maxlayer=3
 debug.mdpcomp.logs=0
-debug.enabletr = false
 #
 # system props for the cne module
 #
