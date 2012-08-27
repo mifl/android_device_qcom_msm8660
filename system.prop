@@ -22,6 +22,7 @@ ro.sf.lcd_density=240
 dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
 debug.mdpcomp.maxlayer=3
+debug.hwc.dynThreshold=2.0
 debug.mdpcomp.logs=0
 debug.enabletr = false
 #
