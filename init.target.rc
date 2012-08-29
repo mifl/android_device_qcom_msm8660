@@ -44,14 +44,14 @@ on fs
     wait /dev/block/platform/msm_sdcc.1/by-num/p14
     mount ext4 /dev/block/platform/msm_sdcc.1/by-num/p14 /persist nosuid nodev barrier=1
 
-    wait /dev/block/platform/msm_sdcc.1/by-num/p1
-    mount vfat /dev/block/platform/msm_sdcc.1/by-num/p1 /firmware ro shortname=lower
-
 on post-fs-data
    mkdir /data/tombstones 0771 system system
    mkdir /tombstones/modem 0771 system system
    mkdir /tombstones/mdm 0771 system system
    mkdir /tombstones/lpass 0771 system system
+   wait /dev/block/platform/msm_sdcc.1/by-num/p1
+   mount vfat /dev/block/platform/msm_sdcc.1/by-num/p1 /firmware ro shortname=lower
+   start modem_link
 
 on boot
    start qcamerasvr
@@ -75,6 +75,11 @@ on property:ro.baseband=svlte2a
     mkdir /data/qcks 0770 system system
     start kickstart
 
+service modem_link /system/bin/sh /system/etc/init.qcom.modem_links.sh
+    class main
+    user root
+    disabled
+    oneshot
 
 service dcvsd0 /system/bin/dcvsd -c 0 -f /data/misc/dcvsd/dcvsd0.conf
     class late_start
