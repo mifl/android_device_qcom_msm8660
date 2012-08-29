@@ -48,4 +48,12 @@ ln -s $MISC_MDM/efs1.mbn /system/etc/firmware/efs1.mbn 2>/dev/null
 ln -s $MISC_MDM/efs2.mbn /system/etc/firmware/efs2.mbn 2>/dev/null
 ln -s $MISC_MDM/efs3.mbn /system/etc/firmware/efs3.mbn 2>/dev/null
 
+case `getprop ro.baseband` in
+   svlte2a)
+    sleep 5
+    break;;
+   *)
+    break;;
+esac
+
 cd /
