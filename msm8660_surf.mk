@@ -11,3 +11,7 @@ PRODUCT_PACKAGES += NoiseField
 PRODUCT_PACKAGES += PhaseBeam
 #fstab.qcom
 PRODUCT_PACKAGES += fstab.qcom
+
+# Bluetooth configuration files
+PRODUCT_COPY_FILES += \
+    system/bluetooth/data/main.conf:system/etc/bluetooth/main.conf \
