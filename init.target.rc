@@ -118,3 +118,8 @@ on property:sys.radio.shutdown=true
    exec /system/bin/sh /system/etc/init.qcom.efs.sync.sh
    user root
    group root
+
+service time_daemon /system/bin/time_daemon
+   class late_start
+   user root
+   group root
