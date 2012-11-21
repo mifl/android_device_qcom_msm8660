@@ -31,6 +31,8 @@ persist.cne.feature=1
 
 ro.hdmi.enable=true
 lpa.decode=false
+use.non-omx.mp3.decoder=true
+use.non-omx.aac.decode=true
 lpa.use-stagefright=true
 
 #system props for the MM modules
