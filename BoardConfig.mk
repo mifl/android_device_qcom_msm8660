@@ -70,3 +70,6 @@ HAVE_CYTTSP_FW_UPGRADE := true
 
 # Add NON-HLOS files for ota upgrade
 ADD_RADIO_FILES ?= false
+
+# Add QC Video Enhancements flag
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
