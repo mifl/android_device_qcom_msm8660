@@ -6,7 +6,7 @@
 BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := true
 
--include vendor/qcom/proprietary/common/msm8660_surf/BoardConfigVendor.mk
+-include $(QCPATH)/common/msm8660_surf/BoardConfigVendor.mk
 
 TARGET_USE_HDMI_AS_PRIMARY := false
 
